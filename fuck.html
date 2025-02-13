@@ -1,20 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>fuck</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Image with Loading</title>
     <style>
+        /* ব্যাকগ্রাউন্ড সেটআপ */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #f4f4f4;
+            margin: 0;
+            flex-direction: column;
         }
 
+        /* লোডিং টেক্সট স্টাইল */
+        .loading-text {
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* ইমেজ স্টাইল (শুরুতে হাইড থাকবে) */
         img {
+            display: none;
             width: 50px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* ইমেজ লোড হয়ে গেলে */
+        .loaded {
+            display: block;
+            opacity: 1;
             animation: grow 2s infinite ease-in-out;
         }
 
+        /* গ্রো অ্যানিমেশন */
         @keyframes grow {
             0% {
                 transform: scale(1);
@@ -25,9 +49,56 @@
                 width: 150px;
             }
         }
+
+        /* রেসপনসিভ ডিজাইন */
+        @media (min-width: 768px) {
+            img {
+                width: 80px;
+            }
+
+            @keyframes grow {
+                0% {
+                    transform: scale(1);
+                    width: 80px;
+                }
+                100% {
+                    transform: scale(2);
+                    width: 200px;
+                }
+            }
+        }
+
+        @media (min-width: 1024px) {
+            img {
+                width: 100px;
+            }
+
+            @keyframes grow {
+                0% {
+                    transform: scale(1);
+                    width: 100px;
+                }
+                100% {
+                    transform: scale(2);
+                    width: 250px;
+                }
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- লোডিং টেক্সট -->
+    <div id="loadingText" class="loading-text">Loading...</div>
+
+    <!-- ইমেজ -->
     <img id="animatedImage" src="80.png" alt="Image">
+
+    <script>
+        // ইমেজ লোড হওয়ার পর লোডিং টেক্সট গায়েব হবে ও ইমেজ দেখাবে
+        document.getElementById("animatedImage").onload = function() {
+            document.getElementById("loadingText").style.display = "none"; // লোডিং টেক্সট গায়েব
+            this.classList.add("loaded"); // ইমেজ শো + অ্যানিমেশন শুরু
+        };
+    </script>
 </body>
 </html>
