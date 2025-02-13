@@ -1,5 +1,7 @@
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
     <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -28,6 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .content {
@@ -35,14 +38,24 @@ body {
 }
 
 .rounded-btn {
-    padding: 2px 2px;
+    padding: 10px;
     border-radius: 30px;
-    }
+    background-color: rgba(255, 255, 255, 0.5); /* Optional background color */
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
 .btn img {
-    width: 150px;
+    width: 100%;
+    max-width: 150px; /* Ensure the image is responsive */
     height: auto;
     border-radius: 30px;
+}
+
+@media (max-width: 600px) {
+    .btn img {
+        max-width: 120px; /* Resize image for smaller screens */
+    }
 }
 
 </style>
