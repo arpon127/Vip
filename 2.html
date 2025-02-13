@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="form-container">
+        <div class="session_box">
+            <div class="session-text">Student ID</div>
+            <input type="text" class="session-box" placeholder="Enter Student ID">
+        </div>
+
+        <div class="middle_box">
+            <div class="middle-text">Mob Number</div>
+            <input type="number" class="middle-input" placeholder="Enter Mobile Number">
+        </div>
+
+        <div class="location_box">
+            <div class="location-text">Category</div>
+            <select class="location-box">
+                <option value="" disabled selected>Category</option>
+                <option value="Barisal">Barisal</option>
+                <option value="Chattogram">Chattogram</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Mymensingh">Mymensingh</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Sylhet">Sylhet</option>
+            </select>
+        </div>
+
+        <div class="button-container">
+            <a href="fuck.html" class="previous-button">
+                <img src="skip.png" alt="Previous">
+            </a>
+            <a href="fuck.html" class="next-button">
+                <img src="next.png" alt="Next">
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<style>
+/* ব্যাকগ্রাউন্ড সেটআপ */
+body {
+    background: url('b.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* পুরো ফর্মের কন্টেইনার */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* লেবেল টেক্সট */
+.session-text, .middle-text, .location-text {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* ইনপুট বক্স */
+.session-box, .middle-input, .location-box {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    outline: none;
+}
+
+/* প্লেসহোল্ডার স্টাইল */
+.session-box::placeholder, .middle-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ক্যাটাগরি ড্রপডাউন */
+.location-box select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #000;
+}
+
+/* বাটন কন্টেইনার */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* বাটন */
+.next-button, .previous-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* বাটনের ছবি */
+.next-button img, .previous-button img {
+    width: 60px;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* হোভার ইফেক্ট */
+.next-button:hover, .previous-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* রেসপনসিভ ডিজাইন */
+@media (min-width: 768px) {
+    .form-container {
+        max-width: 450px;
+    }
+
+    .session-box, .middle-input, .location-box {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    .next-button img, .previous-button img {
+        width: 70px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .form-container {
+        max-width: 500px;
+    }
+
+    .session-box, .middle-input, .location-box {
+        font-size: 20px;
+        padding: 16px;
+    }
+
+    .next-button img, .previous-button img {
+        width: 80px;
+    }
+}
+</style>
