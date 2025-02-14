@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Image with Loading</title>
+    <title>Animated Image with Loading & Audio</title>
     <style>
         /* ব্যাকগ্রাউন্ড সেটআপ */
         body {
@@ -93,11 +93,23 @@
     <!-- ইমেজ -->
     <img id="animatedImage" src="80.png" alt="Image">
 
+    <!-- অডিও (লোড হলে প্লে হবে এবং লুপ হবে) -->
+    <audio id="backgroundAudio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        আপনার ব্রাউজার এই অডিও ফরম্যাট সাপোর্ট করে না।
+    </audio>
+
     <script>
         // ইমেজ লোড হওয়ার পর লোডিং টেক্সট গায়েব হবে ও ইমেজ দেখাবে
         document.getElementById("animatedImage").onload = function() {
             document.getElementById("loadingText").style.display = "none"; // লোডিং টেক্সট গায়েব
             this.classList.add("loaded"); // ইমেজ শো + অ্যানিমেশন শুরু
+
+            // অডিও প্লে করা হবে
+            var audio = document.getElementById("backgroundAudio");
+            audio.play().catch(error => {
+                console.log("Audio autoplay blocked by browser, user interaction required.");
+            });
         };
     </script>
 </body>
